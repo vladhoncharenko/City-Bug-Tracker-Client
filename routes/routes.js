@@ -4,11 +4,11 @@
 
 const apiRoutes = require('./apiRoutes');
 
-module.exports = function (app) {
+module.exports = function (app, viewPath) {
 
     apiRoutes(app);
 
     app.get('/', function (req, res) {
-      console.log(req.body);
+        res.sendFile(viewPath+'index.html');
     });
 };
