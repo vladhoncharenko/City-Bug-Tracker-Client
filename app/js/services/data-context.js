@@ -21,7 +21,7 @@
         factory.getMarkersData = function() {
             return $http({
                 method: 'GET',
-                url: '/getResentBugsData'
+                url: '/getMarkersData'
             }).then(function successCallback(response) {
                 return  response.data;
             }, function errorCallback(response) {
