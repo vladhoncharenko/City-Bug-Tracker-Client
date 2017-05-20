@@ -7,14 +7,25 @@
     angular.module('sumyBugTracker').factory('dataContext',['$http', function($http) {
         let factory={};
 
-        factory.getResentBugsData = function(bugsAmount) {
+        factory.getResentBugsData = function() {
             return $http({
                 method: 'GET',
-                url: '/getResentBugsData?amount='+bugsAmount
+                url: '/getResentBugsData'
             }).then(function successCallback(response) {
                 return  response.data;
             }, function errorCallback(response) {
                 alert('Error while getting recent bugs data! Please, reload page.')
+            });
+        };
+
+        factory.getMarkersData = function() {
+            return $http({
+                method: 'GET',
+                url: '/getResentBugsData'
+            }).then(function successCallback(response) {
+                return  response.data;
+            }, function errorCallback(response) {
+                alert('Error while getting markers data! Please, reload page.')
             });
         };
 
