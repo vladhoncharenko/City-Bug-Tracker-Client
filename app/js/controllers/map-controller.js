@@ -33,20 +33,20 @@
         }
 
         $scope.getAdressByCoordinates = function (lat, lng) {
-            let latlng = new google.maps.LatLng(lat, lng);
-            geocoder.geocode({
-                'latLng': latlng
-            }, function (results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    if (results[1]) {
-                        return results[1];
-                    } else {
-                        alert('No results found');
-                    }
-                } else {
-                    alert('Geocoder failed due to: ' + status);
-                }
-            });
+            // let latlng = new google.maps.LatLng(lat, lng);
+            // geocoder.geocode({
+            //     'latLng': latlng
+            // }, function (results, status) {
+            //     if (status === google.maps.GeocoderStatus.OK) {
+            //         if (results[1]) {
+            //             return results[1];
+            //         } else {
+            //             alert('No results found');
+            //         }
+            //     } else {
+            //         alert('Geocoder failed due to: ' + status);
+            //     }
+            // });
 
         };
 
@@ -54,11 +54,12 @@
             dataContext.getMarkersData().then(markersData => {
                 let bounds = new google.maps.LatLngBounds();
                 for (let i = 0; i < markersData.length; i++) {
-                    let latlng = new google.maps.LatLng(markersData[i].lat, markersData[i].lng);
-                    let name = markersData[i].name;
-                    let address1 = markersData[i].address1;
-                    let address2 = markersData[i].address2;
-                    let postalCode = markersData[i].postalCode;
+                    let latlng = new google.maps.LatLng(markersData[i].coordinates[0], markersData[i].coordinates[1]);
+                    let name = markersData[i].bugId;
+                    let address1 = markersData[i].description;
+                    let address2 = markersData[i].user.__firstName;
+                    let postalCode = markersData[i].date;
+
                     createMarker(latlng, name, address1, address2, postalCode);
                     bounds.extend(latlng);
                 }

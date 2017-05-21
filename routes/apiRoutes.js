@@ -5,7 +5,10 @@
 module.exports = function (app, Bug) {
 
     app.get('/getResentBugsData', (req, res) => {
-       res.send(bugsData);
+        Bug.find().sort({ field: 'asc', _id: -1 }).limit(10).exec((err, bugs) => {
+            if (err) console.log(err);
+            res.send(bugs);
+        });
     });
 
     app.get('/getMarkersData', (req, res) => {
