@@ -1,6 +1,7 @@
 /**
  * Created by Vlad on 20.05.2017.
  */
+var picDownloader = require('./helpers/pic-downloader');
 
 module.exports = function (app, Bug) {
 
@@ -15,6 +16,13 @@ module.exports = function (app, Bug) {
         Bug.find({}, function(err, users) {
             if (err) console.log(err);
             res.send(users);
+        });
+    });
+
+    app.post('/savePic', (req, res) => {
+        console.log(req.body);
+        picDownloader.downloadPic(req.body.src, 'pics/'+req.body.filename,  function(){}).catch(error => {
+            console.log('Error while pic downloading: ' + error);
         });
     });
 };

@@ -20,6 +20,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, 'app/')));
 app.use('/node_modules', express.static(__dirname + '/node_modules/angular'));
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7777');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 require('./routes/routes.js')(app, viewPath, Bug);
 
 http.listen(app.get('port'), function () {
