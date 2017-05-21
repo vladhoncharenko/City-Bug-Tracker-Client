@@ -2,7 +2,7 @@
  * Created by Vlad on 20.05.2017.
  */
 
-module.exports = function (app) {
+module.exports = function (app, Bug) {
 
     var markersData = [
         {
@@ -68,8 +68,6 @@ module.exports = function (app) {
             pic:'https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/18519635_744023015775623_1423208266330624739_n.png?oh=2f3a5ad0388c550dfdef3ace857213e5&oe=59BA3CD4'
         }
     ];
-
-
 
     app.get('/getResentBugsData', (req, res) => {
        res.send(bugsData);

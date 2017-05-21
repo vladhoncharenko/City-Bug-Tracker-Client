@@ -4,9 +4,9 @@
 
 const apiRoutes = require('./apiRoutes');
 
-module.exports = function (app, viewPath) {
+module.exports = function (app, viewPath, Bug) {
 
-    apiRoutes(app);
+    apiRoutes(app, Bug);
 
     app.get('/', function (req, res) {
         res.sendFile(viewPath+'index.html');
