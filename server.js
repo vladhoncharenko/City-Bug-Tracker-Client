@@ -18,8 +18,10 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', (process.env.PORT || 5000));
-app.use(express.static(path.join(__dirname, 'app/')));
+app.use('/',express.static(path.join(__dirname, 'app/')));
+app.use('/pics',express.static(path.join(__dirname, '/pics')));
 app.use('/node_modules', express.static(__dirname + '/node_modules/angular'));
+app.set('view engine', 'ejs');
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7777');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');

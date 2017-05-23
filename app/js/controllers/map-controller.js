@@ -55,30 +55,35 @@
                 let bounds = new google.maps.LatLngBounds();
                 for (let i = 0; i < markersData.length; i++) {
                     let latlng = new google.maps.LatLng(markersData[i].coordinates[0], markersData[i].coordinates[1]);
-                    let name = markersData[i].bugId;
-                    let address1 = markersData[i].description;
-                    let address2 = markersData[i].user.__firstName;
-                    let postalCode = markersData[i].date;
 
-                    createMarker(latlng, name, address1, address2, postalCode);
+                    let bugId = markersData[i].bugId;
+                    let description = markersData[i].description;
+
+                    let date = new Date(markersData[i].date * 1000).toISOString().slice(0,10);;
+
+
+
+                    let userName = markersData[i].user._firstName + ' ' + markersData[i].user._lastName;
+
+                    createMarker(latlng, bugId, description, date, userName);
                     bounds.extend(latlng);
                 }
             });
         }
 
-        function createMarker(latlng, name, address1, address2, postalCode) {
+        function createMarker(latlng, bugId, description, date, userName) {
             let marker = new google.maps.Marker({
                 map: map,
                 position: latlng,
-                title: name
+                title: bugId
             });
 
             google.maps.event.addListener(marker, 'click', function () {
-                let iwContent = '<div id="iw_container">' +
-                    '<div class="iw_title">' + name + '</div>' +
-                    '<div class="iw_content">' + address1 + '<br />' +
-                    address2 + '<br />' +
-                    postalCode + '</div></div>';
+                let iwContent ='<div><a target="_blank" href="http://localhost:5000/bug?'+bugId+'">' + bugId + '</a></div>' +
+                        '<div>' + description +'</div>'+
+                        userName + '<br />' +
+                        date+ '<br />' +
+                        "<img style='height:200px' src='http://localhost:5000/pics/" +  bugId + ".jpg'/>";
 
                 infoWindow.setContent(iwContent);
                 infoWindow.open(map, marker);

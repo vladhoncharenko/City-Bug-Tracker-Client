@@ -8,7 +8,6 @@ const fs = require('fs');
 let downloadPic = function (uri, filename, callback) {
     return new Promise(function (resolve, reject) {
         request.head(uri, function (err, res, body) {
-            console.log(res.statusCode);
             if (res.statusCode !== 200) {
                 reject(res.statusCode);
             }

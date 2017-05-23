@@ -21,11 +21,11 @@
                    style='background:blue;border-radius: 6px;margin: 10px 10px 0 10px; min-height:70px;'>
 			  
 			  <span style='display:inline-block;'> 
-			  <img src='{{item.pic}}' style='width:50px; height:50px;border-radius: 6px;margin:10px 10px -10px 10px'/>
+			  <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' style='width:50px; height:50px;border-radius: 6px;margin:10px 10px -10px 10px'/>
 			  <span>
 			  
 			 <span style='display:inline-block;'>
-				<a style='color:red;text-decoration: none; ' target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a>
+				<a style='color:red;text-decoration: none; ' target='_blank' href=/bug?{{item.bugId}}>{{item.bugId}}</a>
 				<p>{{getAdressByCoordinates(item.lat, item.lng)}}</p>
 				</span>
 				

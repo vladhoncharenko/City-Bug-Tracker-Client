@@ -11,4 +11,10 @@ module.exports = function (app, viewPath, Bug) {
     app.get('/', function (req, res) {
         res.sendFile(viewPath+'index.html');
     });
+
+    app.get('/bug', function (req, res) {
+        res.render(viewPath+'bug.ejs', {
+            bugId: req._parsedOriginalUrl.query
+        });
+    });
 };
