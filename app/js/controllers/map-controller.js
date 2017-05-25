@@ -25,46 +25,21 @@
             displayResentData();
         };
 
-
         function displayResentData() {
             dataContext.getResentBugsData().then(bugsData => {
                 $scope.recentBugs = bugsData;
             });
         }
 
-        $scope.getAdressByCoordinates = function (lat, lng) {
-            // let latlng = new google.maps.LatLng(lat, lng);
-            // geocoder.geocode({
-            //     'latLng': latlng
-            // }, function (results, status) {
-            //     if (status === google.maps.GeocoderStatus.OK) {
-            //         if (results[1]) {
-            //             return results[1];
-            //         } else {
-            //             alert('No results found');
-            //         }
-            //     } else {
-            //         alert('Geocoder failed due to: ' + status);
-            //     }
-            // });
-
-        };
-
         function displayMarkers() {
             dataContext.getMarkersData().then(markersData => {
                 let bounds = new google.maps.LatLngBounds();
                 for (let i = 0; i < markersData.length; i++) {
                     let latlng = new google.maps.LatLng(markersData[i].coordinates[0], markersData[i].coordinates[1]);
-
                     let bugId = markersData[i].bugId;
                     let description = markersData[i].description;
-
-                    let date = new Date(markersData[i].date * 1000).toISOString().slice(0,10);;
-
-
-
+                    let date = new Date(markersData[i].date * 1000).toISOString().slice(0,10);
                     let userName = markersData[i].user._firstName + ' ' + markersData[i].user._lastName;
-
                     createMarker(latlng, bugId, description, date, userName);
                     bounds.extend(latlng);
                 }

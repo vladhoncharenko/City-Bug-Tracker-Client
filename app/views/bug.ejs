@@ -11,9 +11,12 @@
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body ng-init="initialize('<%=bugId%>')" ng-controller="BugController">
-<div id="map"></div>
 <div id="bug">
-<span>{{bug}}</span>
+    <span>{{bug.bugId}}</span>
+    <span>{{bug.user._firstName +" "+ bug.user._lastName}}</span>
+    <span>{{bug.coordinates}}</span>
+    <span><img src='http://localhost:5000/pics/{{bug.bugId}}.jpg' style="height:300px "/></span>
+    <span>{{bug.description}}</span>
 </div>
 </body>
 </html>
