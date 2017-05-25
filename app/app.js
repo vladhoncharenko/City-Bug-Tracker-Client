@@ -1,3 +1,3 @@
 'use strict';
 
-var app = angular.module('sumyBugTracker',[]);
+var app = angular.module('sumyBugTracker',['ngScrollbar']);

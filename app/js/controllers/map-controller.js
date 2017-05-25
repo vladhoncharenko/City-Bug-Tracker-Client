@@ -4,7 +4,7 @@
 
         let map, geocoder;
         let infoWindow;
-
+        $scope.bugs=10;
         $scope.initialize = function () {
             let mapOptions = {
                 center: new google.maps.LatLng(50.908424, 34.811541),
@@ -28,8 +28,15 @@
         function displayResentData() {
             dataContext.getResentBugsData().then(bugsData => {
                 $scope.recentBugs = bugsData;
+                $scope.$broadcast('rebuild:me');
             });
         }
+
+        $scope.loadMoreBugs = function () {
+            // dataContext.getResentBugsData($scope.bugs).then(bugsData => {
+            //     $scope.recentBugs = bugsData;
+            // });
+        };
 
         function displayMarkers() {
             dataContext.getMarkersData().then(markersData => {

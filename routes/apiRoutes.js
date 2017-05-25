@@ -6,7 +6,7 @@ var picDownloader = require('./helpers/pic-downloader');
 module.exports = function (app, Bug) {
 
     app.get('/getResentBugsData', (req, res) => {
-        Bug.find().sort({field: 'asc', _id: -1}).limit(10).exec((err, bugs) => {
+        Bug.find().sort({field: 'asc', _id: -1}).limit(14).exec((err, bugs) => {
             if (err) console.log(err);
             res.send(bugs);
         });
