@@ -12,9 +12,9 @@ module.exports = function (app, viewPath, Bug) {
         res.sendFile(viewPath+'index.html');
     });
 
-    app.get('/bug', function (req, res) {
+    app.get('/bug/:id*', function (req, res) {
         res.render(viewPath+'bug.ejs', {
-            bugId: req._parsedOriginalUrl.query
+            bugId: req.params.id
         });
     });
 };

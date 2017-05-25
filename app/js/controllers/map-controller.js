@@ -27,8 +27,8 @@
 
 
         function displayResentData() {
-            dataContext.getResentBugsData().then(f => {
-                $scope.recentBugs = f;
+            dataContext.getResentBugsData().then(bugsData => {
+                $scope.recentBugs = bugsData;
             });
         }
 
@@ -79,7 +79,7 @@
             });
 
             google.maps.event.addListener(marker, 'click', function () {
-                let iwContent ='<div><a target="_blank" href="http://localhost:5000/bug?'+bugId+'">' + bugId + '</a></div>' +
+                let iwContent ='<div><a target="_blank" href="http://localhost:5000/bug/'+bugId+'">' + bugId + '</a></div>' +
                         '<div>' + description +'</div>'+
                         userName + '<br />' +
                         date+ '<br />' +

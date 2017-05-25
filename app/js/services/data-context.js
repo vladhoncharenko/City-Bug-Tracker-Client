@@ -18,6 +18,18 @@
             });
         };
 
+        factory.getBugData = function(bugId) {
+            return $http({
+                method: 'POST',
+                url: '/getBugData',
+                data: { id: bugId }
+            }).then(function successCallback(response) {
+                return  response.data;
+            }, function errorCallback(response) {
+                alert('Error while getting bug data! Please, reload page.')
+            });
+        };
+
         factory.getMarkersData = function() {
             return $http({
                 method: 'GET',

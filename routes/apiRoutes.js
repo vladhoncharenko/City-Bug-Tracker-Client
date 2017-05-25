@@ -13,9 +13,17 @@ module.exports = function (app, Bug) {
     });
 
     app.get('/getMarkersData', (req, res) => {
-        Bug.find({}, function(err, users) {
+        Bug.find({}, function(err, markers) {
             if (err) console.log(err);
-            res.send(users);
+            res.send(markers);
+        });
+    });
+
+    app.post('/getBugData', (req, res) => {
+        console.log(req.body.id);
+        Bug.findOne({'bugId':req.body.id}, function(err, bug) {
+            if (err) console.log(err);
+            res.send(bug);
         });
     });
 

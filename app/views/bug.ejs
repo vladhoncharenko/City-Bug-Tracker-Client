@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="sumyBugTracker">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>Bug <%= bugId %></title>
+    <script src="../js/libs/angular.js"></script>
+    <script src="../app.js" type="text/javascript"></script>
+    <script src="../js/services/data-context.js" type="text/javascript"></script>
+    <script src="../js/helpers/config.js" type="text/javascript"></script>
+    <script src="../js/controllers/bug-controller.js" type="text/javascript"></script>
+    <link href="../css/style.css" rel="stylesheet">
 </head>
-<body>
-<p><%= bugId %></p>
+<body ng-init="initialize('<%=bugId%>')" ng-controller="BugController">
+<div id="map"></div>
+<div id="bug">
+<span>{{bug}}</span>
+</div>
 </body>
 </html>
