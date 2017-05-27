@@ -46,8 +46,18 @@ html, body {
 .telegram-logo{
     position: absolute;
     z-index: 99;
-    top: 60px; bottom: 16px; left: 30px;
+    top: 60px; left: 30px;
 }
 .telegram-logo-pic{
     width: 25%;
+}
+.credentials{
+    position: absolute;
+    z-index: 99;
+    bottom: -12px; left: 75px;
+}
+.credit{
+text-decoration: none;
+    color: #fa5b57;
+    font-weight: bold;
 }
