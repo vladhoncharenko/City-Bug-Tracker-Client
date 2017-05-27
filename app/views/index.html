@@ -26,8 +26,8 @@
             <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' class="bug-item-pic"/>
         </div>
         <div style="display:inline-block;" >
-            <a style='color:blue;text-decoration: none;' target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a>
-            <p>{{item.description.length>25? item.description.slice(0,25)+'...':item.description}}</p>
+            <p class="id-link"><a class="bug-id" target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a> {{item.date}}</p>
+            <p class="description">{{item.description.length>25? item.description.slice(0,25)+'...':item.description}}</p>
         </div>
     </div>
 </div>

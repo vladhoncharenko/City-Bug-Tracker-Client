@@ -27,6 +27,9 @@
 
         function displayResentData() {
             dataContext.getResentBugsData().then(bugsData => {
+                bugsData.forEach(item=>{
+                    item.date = new Date(item.date * 1000).toISOString().slice(0, 10);
+                });
                 $scope.recentBugs = bugsData;
                 $scope.$broadcast('rebuild:me');
             });

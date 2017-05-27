@@ -2,62 +2,78 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-
-
-
     font-size: 1em !important;
-
     font-family: Verdana, Geneva, sans-serif !important;
-
 }
+
 #map {
     height: 100%;
     width: 100%;
-  
 }
+
 #latest-bugs {
-  background: white;
+    background: white;
     position: absolute;
     z-index: 99;
     width: 20%;
-    top: 0;   
+    top: 0;
     opacity: 0.9;
     filter: alpha(opacity=90);
     color: #FFFFFF;
     height: auto;
-    top: 16px; bottom: 16px; right: 16px;
-	border-radius: 10px;
-    overflow-y:auto;
+    top: 16px;
+    bottom: 16px;
+    right: 16px;
+    border-radius: 10px;
+    overflow-y: auto;
     min-width: 400px;
 }
 
-.bug-item{
-    background:#abd0fa;
+.bug-item {
+    background: #00b2e1;
     border-radius: 6px;
     margin: 10px 20px 0 15px;
-    min-height:70px;
+    min-height: 70px;
 }
-.bug-item-pic{
-    width:50px;
-    height:50px;
+
+.bug-item-pic {
+    width: 50px;
+    height: 50px;
     border-radius: 6px;
-    margin:10px 10px -10px 10px;
+    margin: 10px 10px -10px 10px;
 }
-.telegram-logo{
+
+.telegram-logo {
     position: absolute;
     z-index: 99;
-    top: 60px; left: 30px;
+    top: 60px;
+    left: 30px;
 }
-.telegram-logo-pic{
+
+.telegram-logo-pic {
     width: 25%;
 }
-.credentials{
+
+.credentials {
     position: absolute;
     z-index: 99;
-    bottom: -12px; left: 75px;
+    bottom: -12px;
+    left: 75px;
 }
-.credit{
-text-decoration: none;
+
+.credit {
+    text-decoration: none;
     color: #fa5b57;
     font-weight: bold;
+}
+
+.description{
+    margin-top: 6px;
+}
+.id-link{
+    margin-bottom: 5px;
+}
+.bug-id{
+    color:blue;
+    text-decoration: none;
 }
