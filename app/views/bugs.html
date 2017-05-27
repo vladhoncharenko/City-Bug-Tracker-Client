@@ -6,24 +6,32 @@
     <script src="../js/libs/angular.js"></script>
     <script src="../js/libs/ng-scrollbar.min.js"></script>
     <script src="../app.js" type="text/javascript"></script>
+    <link href="../css/ng-scrollbar.min.css" rel="stylesheet">
     <script src="../js/services/data-context.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmZpIaHanOEENj-1RN_YhX5_8hFyT85wY"></script>
     <script src="../js/helpers/config.js" type="text/javascript"></script>
     <script src="../js/controllers/all-bugs-controller.js" type="text/javascript"></script>
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body ng-init="initialize()" ng-controller="AllBugsController">
+<div id="map"></div>
+<div class="all-bugs-header"><h1><a class="all-bugs-link" href="/">Sumy Bug Tracker</a></h1></div>
+<div id="all-bugs-list" ng-scrollbar rebuild-on-resize rebuild-on="rebuild:me">
 
-<div ng-repeat="item in recentBugs" class="bug-item" ng-click="goToCoordinates(item.coordinates)">
-    <div style="display:inline-block">
-        <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' class="bug-item-pic"/>
+    <div ng-repeat="item in bugs" class="all-bug-item" ng-click="goToCoordinates(item.coordinates)">
+        <div style="display:inline-block">
+            <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' class="bug-item-pic"/>
+        </div>
+        <div style="display:inline-block;">
+            <p class="id-link"><a class="bug-id" target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a>
+                {{item.date}}
+                {{item.user._firstName}} {{item.user._lastName}}
+            </p>
+            <p class="description">{{item.description.length>25 ? item.description.slice(0,25) + '...' : item.description}}</p>
+        </div>
     </div>
-    <div style="display:inline-block;" >
-        <p class="id-link"><a class="bug-id" target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a> {{item.date}}</p>
-        <p class="description">{{item.description.length>25? item.description.slice(0,25)+'...':item.description}}</p>
-    </div>
+
 </div>
-
-
-
 </body>
 </html>

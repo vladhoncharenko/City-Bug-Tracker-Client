@@ -11,31 +11,37 @@
     <script src="../js/services/data-context.js" type="text/javascript"></script>
     <script src="../js/helpers/config.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmZpIaHanOEENj-1RN_YhX5_8hFyT85wY"></script>
     <script src="../js/controllers/map-controller.js" type="text/javascript"></script>
     <link href="../css/style.css" rel="stylesheet">
 
 </head>
 <body ng-init="initialize()" ng-controller="MapController">
 <div id="map"></div>
-<div class="telegram-logo"><p><a href="http://t.me/SumyBugTrackerBot" target="_blank"><img class="telegram-logo-pic" src="../img/telegram-logo.png"></a></p></div>
+<div class="telegram-logo"><p><a href="http://t.me/SumyBugTrackerBot" target="_blank"><img class="telegram-logo-pic"
+                                                                                           src="../img/telegram-logo.png"></a>
+</p></div>
 
-    <p class="last-added-text">Нещодавно додані:</p>
+<p class="last-added-text">Нещодавно додані:</p>
 <div id="latest-bugs" ng-scrollbar rebuild-on-resize rebuild-on="rebuild:me">
 
     <div ng-repeat="item in recentBugs" class="bug-item" ng-click="goToCoordinates(item.coordinates)">
         <div style="display:inline-block">
             <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' class="bug-item-pic"/>
         </div>
-        <div style="display:inline-block;" >
-            <p class="id-link"><a class="bug-id" target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a> {{item.date}}</p>
-            <p class="description">{{item.description.length>25? item.description.slice(0,25)+'...':item.description}}</p>
+        <div style="display:inline-block;">
+            <p class="id-link"><a class="bug-id" target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a>
+                {{item.date}}</p>
+            <p class="description">{{item.description.length>25 ? item.description.slice(0,25) + '...' : item.description}}</p>
         </div>
     </div>
 
 </div>
-<a href="http://localhost:5000/bugs" target="_blank"> <div class="view-all"><p class="view-all-text">Переглянути всі</p></div></a>
+<a href="http://localhost:5000/bugs" target="_blank">
+    <div class="view-all"><p class="view-all-text">Переглянути всі</p></div>
+</a>
 
-<div class="credentials"><p><a class="credit" target="_blank" href="https://www.instagram.com/vldkwsk/">vldkwsk</a>&<a class="credit" target="_blank" href="https://www.instagram.com/epismenniy/">epismenniy</a></p></div>
+<div class="credentials"><p><a class="credit" target="_blank" href="https://www.instagram.com/vldkwsk/">vldkwsk</a>&<a
+        class="credit" target="_blank" href="https://www.instagram.com/epismenniy/">epismenniy</a></p></div>
 </body>
 </html>
