@@ -19,6 +19,13 @@ module.exports = function (app, Bug) {
         });
     });
 
+    app.get('/getAllBugsData', (req, res) => {
+        Bug.find({}, function (err, bugs) {
+            if (err) console.log(err);
+            res.send(bugs);
+        });
+    });
+
     app.post('/getBugData', (req, res) => {
         Bug.findOne({'bugId': req.body.id}, function (err, bug) {
             if (err) console.log(err);

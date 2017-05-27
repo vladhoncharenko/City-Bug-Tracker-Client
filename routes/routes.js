@@ -17,4 +17,8 @@ module.exports = function (app, viewPath, Bug) {
             bugId: req.params.id
         });
     });
+
+    app.get('/bugs', function (req, res) {
+        res.sendFile(viewPath+'bugs.html');
+    });
 };

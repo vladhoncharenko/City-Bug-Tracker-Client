@@ -41,6 +41,17 @@
             });
         };
 
+        factory.getAllBugsData = function() {
+            return $http({
+                method: 'GET',
+                url: '/getAllBugsData'
+            }).then(function successCallback(response) {
+                return  response.data;
+            }, function errorCallback(response) {
+                alert('Error while getting all bugs data! Please, reload page.')
+            });
+        };
+
         return factory;
     }]);
 }(angular));
