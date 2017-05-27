@@ -13,5 +13,17 @@
 </head>
 <body ng-init="initialize()" ng-controller="AllBugsController">
 
+<div ng-repeat="item in recentBugs" class="bug-item" ng-click="goToCoordinates(item.coordinates)">
+    <div style="display:inline-block">
+        <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' class="bug-item-pic"/>
+    </div>
+    <div style="display:inline-block;" >
+        <p class="id-link"><a class="bug-id" target='_blank' href=/bug/{{item.bugId}}>{{item.bugId}}</a> {{item.date}}</p>
+        <p class="description">{{item.description.length>25? item.description.slice(0,25)+'...':item.description}}</p>
+    </div>
+</div>
+
+
+
 </body>
 </html>
