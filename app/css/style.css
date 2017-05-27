@@ -28,6 +28,7 @@ html, body {
     top: 16px; bottom: 16px; right: 16px;
 	border-radius: 10px;
     overflow-y:auto;
+    min-width: 400px;
 }
 
 .bug-item{
@@ -41,4 +42,12 @@ html, body {
     height:50px;
     border-radius: 6px;
     margin:10px 10px -10px 10px;
+}
+.telegram-logo{
+    position: absolute;
+    z-index: 99;
+    top: 60px; bottom: 16px; left: 30px;
+}
+.telegram-logo-pic{
+    width: 25%;
 }
