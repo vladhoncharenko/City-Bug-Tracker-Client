@@ -19,9 +19,11 @@
 <body ng-init="initialize()" ng-controller="MapController">
 <div id="map"></div>
 <div class="telegram-logo"><p><a href="http://t.me/SumyBugTrackerBot" target="_blank"><img class="telegram-logo-pic" src="../img/telegram-logo.png"></a></p></div>
+
+    <p class="last-added-text">Нещодавно додані:</p>
 <div id="latest-bugs" ng-scrollbar rebuild-on-resize rebuild-on="rebuild:me">
 
-    <div ng-repeat="item in recentBugs" class="bug-item">
+    <div ng-repeat="item in recentBugs" class="bug-item" ng-click="goToCoordinates(item.coordinates)">
         <div style="display:inline-block">
             <img src='http://localhost:5000/pics/{{item.bugId}}.jpg' class="bug-item-pic"/>
         </div>
@@ -30,7 +32,10 @@
             <p class="description">{{item.description.length>25? item.description.slice(0,25)+'...':item.description}}</p>
         </div>
     </div>
+
 </div>
+<a href="http://localhost:5000/bugs" target="_blank"> <div class="view-all"><p class="view-all-text">Переглянути всі</p></div></a>
+
 <div class="credentials"><p><a class="credit" target="_blank" href="https://www.instagram.com/vldkwsk/">vldkwsk</a>&<a class="credit" target="_blank" href="https://www.instagram.com/epismenniy/">epismenniy</a></p></div>
 </body>
 </html>

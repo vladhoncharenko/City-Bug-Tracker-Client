@@ -35,10 +35,9 @@
             });
         }
 
-        $scope.loadMoreBugs = function () {
-            // dataContext.getResentBugsData($scope.bugs).then(bugsData => {
-            //     $scope.recentBugs = bugsData;
-            // });
+        $scope.goToCoordinates = function (coordinates) {
+            map.setCenter({ lat: coordinates[0],  lng: coordinates[1] });
+            map.setZoom(20);
         };
 
         function displayMarkers() {
