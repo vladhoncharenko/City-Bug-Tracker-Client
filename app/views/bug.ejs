@@ -34,15 +34,15 @@
         <div class="col-md-12" style="padding: 15px">
             <div class="col-md-6">
                 <a href="http://localhost:5000/pics/{{bug.bugId}}.jpg" target="_blank">
-                    <img class="img-responsive img-rounded" src='http://localhost:5000/pics/{{bug.bugId}}.jpg'  alt="" style="height: 400px; width: 500px">
+                    <img class="img-responsive img-rounded" src='http://localhost:5000/pics/{{bug.bugId}}.jpg'  alt="" style="height: 400px; width: 400px">
                 </a>
             </div>
             <div class="col-md-6">
                 <div class="text-center" style="margin-bottom: 30px">
                     <h2 >№{{bug.bugId}}</h2>
                 </div>
-                <div>Ім'я: {{bug.user._firstName +" "+ bug.user._lastName}}</div><br/>
-                <div>Опис проблеми: {{bug.description}}</div><br/>
+                <div><i class="fa fa-user-circle" aria-hidden="true"></i> {{bug.user._firstName +" "+ bug.user._lastName}}</div><br/>
+                <div><i class="fa fa-file-text-o" aria-hidden="true"></i> {{bug.description}}</div><br/>
                 <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i>  {{bug.coordinates}}</div><br/>
 
                 <div class="btn-group" style="border-radius:5px;">
