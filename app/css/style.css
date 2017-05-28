@@ -141,3 +141,15 @@ html, body {
     text-decoration: none;
     color: black;
 }
+
+.one-bug {
+    top: 15%;
+    position: absolute;
+    z-index: 99;
+}
+
+.one-bug-header {
+    position: absolute;
+    z-index: 99;
+    top: 3%;
+}

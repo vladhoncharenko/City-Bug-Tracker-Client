@@ -8,51 +8,56 @@
     <script src="../app.js" type="text/javascript"></script>
     <script src="../js/services/data-context.js" type="text/javascript"></script>
     <script src="../js/helpers/config.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
     <script src="../js/bootstrap.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmZpIaHanOEENj-1RN_YhX5_8hFyT85wY"></script>
     <script src="../js/controllers/bug-controller.js" type="text/javascript"></script>
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
-<body ng-init="initialize('<%=bugId%>')" ng-controller="BugController" style="height: 100%;">
+<body ng-init="initialize('<%= bugId %>')" ng-controller="BugController" style="height: 100%;">
+<div id="map"></div>
 
 
-<div class="row" style="margin-top: 20px;  width: 100%">
+<div class="row one-bug-header" style="margin-top: 20px;  width: 100%">
     <a href="/" style="color: inherit">
-        <div class="col-md-5 col-md-offset-4 " style="margin-left: 40%"><h1 style="font-weight: bolder">Sumy Bug Tracker</h1></div>
+        <div class="col-md-5 col-md-offset-4 " style="margin-left: 40%"><h1 style="font-weight: bolder">Sumy Bug
+                Tracker</h1></div>
     </a>
 </div>
 
-<div class="row" style="margin-top: 50px; width: 100%">
-
+<div class="row one-bug" style="margin-top: 50px; width: 100%">
     <div class="col-md-2">
-
     </div>
-
-    <div class="col-md-8" style="background-color: #1AB8E2; height: auto; min-height: 400px; border-radius:12px; color: white">
-
+    <div class="col-md-8"
+         style="background-color: #1AB8E2; height: auto; min-height: 400px; border-radius:12px; color: white">
         <div class="col-md-12" style="padding: 15px">
             <div class="col-md-6">
                 <a href="http://localhost:5000/pics/{{bug.bugId}}.jpg" target="_blank">
-                    <img class="img-responsive img-rounded" src='http://localhost:5000/pics/{{bug.bugId}}.jpg'  alt="" style="height: 400px; width: 400px">
+                    <img class="img-responsive img-rounded" src='http://localhost:5000/pics/{{bug.bugId}}.jpg' alt=""
+                         style="height: 400px; width: 400px">
                 </a>
             </div>
             <div class="col-md-6">
                 <div class="text-center" style="margin-bottom: 30px">
-                    <h2 >№{{bug.bugId}}</h2>
+                    <h2>№{{bug.bugId}}</h2>
                 </div>
-                <div><i class="fa fa-user-circle" aria-hidden="true"></i> {{bug.user._firstName +" "+ bug.user._lastName}}</div><br/>
-                <div><i class="fa fa-file-text-o" aria-hidden="true"></i> {{bug.description}}</div><br/>
-                <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i>  {{bug.coordinates}}</div><br/>
-
+                <div><i class="fa fa-user-circle" aria-hidden="true"></i> {{bug.user._firstName +" "+ bug.user._lastName}}
+                </div>
+                <br/>
+                <div><i class="fa fa-file-text-o" aria-hidden="true"></i> {{bug.description}}</div>
+                <br/>
+                <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i> {{bug.coordinates}}</div>
+                <br/>
                 <div class="btn-group" style="border-radius:5px;">
-                        <a href="http://t.me/SumyBugTrackerBot" style="color: white; margin-right: 5px;"><i class="fa fa-telegram fa-2x" aria-hidden="true" title="Telegram"></i></a>
-                        <a href="#" style="color: white"><i class="fa fa-facebook fa-2x" aria-hidden="true" title="Facebook"></i></a>
+                    <a href="http://t.me/SumyBugTrackerBot" style="color: white; margin-right: 5px;"><i
+                                class="fa fa-telegram fa-2x" aria-hidden="true" title="Telegram"></i></a>
+                    <a href="#" style="color: white"><i class="fa fa-facebook fa-2x" aria-hidden="true"
+                                                        title="Facebook"></i></a>
                 </div>
-
             </div>
         </div>
-
     </div>
 
 
